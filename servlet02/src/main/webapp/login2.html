@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>로그인창</title>
+	<script type="text/javascript">
+		function fn_validate() {
+			let login = document.frmLogin;
+			let id = login.user_id.value;
+			let pw = login.user_pw.value;
+			if(id.length == 0 || id == "") {
+				alert("아이디를 입력해주세요.");
+			}else if(pw.length == 0 || pw == "") {
+				alert("비밀번호를 입력해주세요.");
+			}else {
+				login.method = "post";
+				login.action = "login5";
+				login.submit();
+			}	
+		}
+	</script>
+</head>
+<body>
+	<h2>로그인 정보창</h2>
+	<form name="frmLogin" enctype="UTF-8">
+		<label for="user_id">아이디 : </label>
+		<input type="text" id="user_id" name="user_id"><br>
+		<label for="user_pw">비밀번호 : </label>
+		<input type="password" id="user_pw" name="user_pw"><br>
+		<input type="hidden" name="user_address" value="서울시 종로구">
+		<input type="button" value="로그인" onClick="fn_validate()">
+		<input type="reset" value="다시입력">
+	</form>
+</body>
+</html>
