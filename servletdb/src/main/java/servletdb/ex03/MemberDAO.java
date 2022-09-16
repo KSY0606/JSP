@@ -24,8 +24,10 @@ public class MemberDAO {
 	
 	public MemberDAO() {
 		try {
+			// JNDI에 접근하기 위해 기본경로 ("java:/comp/env")를 지정
 			Context ctx = new InitialContext();
 			Context envContext = (Context)ctx.lookup("java:/comp/env");
+			// 톰켓 context.xml에 설정한 name값인("jdbc/oracle")를 이용해 톰켓이 미리 연결한 DataSource를 받아온다.
 			dataFactory = (DataSource)envContext.lookup("jdbc/oracle");
 		}catch(Exception e) {
 			System.out.println("커넥션풀 연결 실패");
