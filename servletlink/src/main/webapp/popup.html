@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>알림창</title>
+	<script type="text/javascript">
+		function setPopup(obj) {
+			if(obj.checked == true) {
+				let exDate = new Date();
+				let days = 1;			// 1이면 하루 , 2면 이틀 , 3이면 3일
+				exDate.setDate(exDate.getDate()+days);  // getDate() + days  =  현재날짜의 일자 + 1이 됨 
+				document.cookie = "copop=" + "true" + ";path=/; expires=" + exDate.toGMTString();
+				window.close();
+			}
+		}
+	</script>
+</head>
+<body>
+								<!-- 팝업창 예제  popupTest.html은 메인페이지   popup.html은 팝업창! -->
+	<h3>공지사항</h3>
+	<p>끝까지 코로나 방심하지맙시다.</p>
+	<p>금요일 서브 프로그램 구현 평가</p>
+	<p>본인이 구현한 홈페이지 회원가입활용</p>
+	<input type="checkbox" onclick="setPopup(this)">오늘 더 이상 팝업창 띄우지 않기 
+</body>
+</html>
