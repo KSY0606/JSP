@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/member")
+//@WebServlet("/member") // ex01과 이름이 같아 잠시 주석.
 public class MemberServlet extends HttpServlet {
 	
 	

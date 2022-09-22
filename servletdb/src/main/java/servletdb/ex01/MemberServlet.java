@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-// @WebServlet("/member") ex02와 mapping 이름이 같으므로 잠시 주석처리
+@WebServlet("/member")  //ex02와 mapping 이름이 같으므로 잠시 주석처리
 public class MemberServlet extends HttpServlet {
 	
 	
