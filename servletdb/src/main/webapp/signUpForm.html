@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입창</title>
+<script type="text/javascript">
+	function fn_sendMember() {
+		let frmMember = document.frmMember;
+		let id = frmMember.id.value;
+		let password = frmMember.password.value;
+		let name = frmMember.name.value;
+		let tel = frmMember.tel.value;
+		let email = frmMember.email.value;
+		if(id.length == 0 || id == "") {
+			alert("아이디를 입력해주세요.");
+		}else if(password.length == 0 || password == "") {
+			alert("비밀번호를 입력해주세요.");
+		}else if(name.length == 0 || name == "") {
+			alert("이름을 입력해주세요.")
+		}else if(tel.length == 0 || tel == "") {
+			alert("전화번호를 입력해주세요.")
+		}else {
+			frmMember.method="post"; // 전송 방법을 지정
+			frmMember.action="signUp"; // 서블릿 매핑이름을 지정
+			frmMember.submit(); // 서블릿으로 전송 = submit
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="frmMember">
+		<table>
+			<th>회원가입</th>
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="id"></td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" name="password"></td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="name"></td>
+			</tr>
+			<tr>
+				<td>생년월일</td>
+				<td>
+					<select name="birth">
+                    	<option value="">-- 연도 --</option>
+                      	<option value="1990">1990</option>
+                      	<option value="1991">1991</option>
+                      	<option value="1992">1992</option>
+                      	<option value="1993">1993</option>
+                      	<option value="1994">1994</option>
+                	</select>
+          		 	<select name="birth">
+          		 		<option value="">-- 월 --</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                   		<option value="4">4</option>
+					    <option value="5">5</option>
+					</select>
+					<select name="birth">
+          		 		<option value="">-- 일 --</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                   		<option value="4">4</option>
+					    <option value="5">5</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td><input type="text" name="gender"></td>
+			</tr>
+			<tr>
+				<td>전화번호</td>
+				<td><input type="text" name="tel"></td>
+			</tr>
+			<tr>
+				<td>이메일</td>
+				<td><input type="text" name="email"></td>
+			</tr>
+		</table>
+		<input type="button" value="가입하기" onclick="fn_sendMember()">
+		<input type="reset" value="다시입력">
+		<input type="hidden" name="command" value="addMember">
+	</form>
+</body>
+</html>
