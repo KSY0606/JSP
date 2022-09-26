@@ -39,5 +39,7 @@
 	<%
 		}
 	%>
+	<br>
+	<a href="scoreTest.html">시험 점수 입력</a>
 </body>
 </html>
