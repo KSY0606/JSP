@@ -1,23 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import ="java.util.*, jspAction01.ex01.*" %>
-    <%
-    	request.setCharacterEncoding("utf-8");
-    	String command = request.getParameter("command");
-    	MemberDAO dao = new MemberDAO();
-    	if(command != null && command.equals("addMember")){
-    		String id = request.getParameter("id");
-        	String pwd = request.getParameter("pwd");
-        	String name = request.getParameter("name");
-        	String email = request.getParameter("email");
-    		MemberBean memberBean = new MemberBean(id, pwd, name, email);
-        	dao.addMember(memberBean); // 회원정보를 테이블에 추가	
-    	} else if(command != null && command.equals("delMember")) {
-    		String id = request.getParameter("id");
-    		dao.delMember(id);
-    	}
-    	List memberList = dao.listMembers(); // 전체 회원정보를 조회
-    %>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
+<jsp:useBean id="memBean" class="jspAction01.ex01.MemberBean" scope="page"></jsp:useBean>
+<%
+	String command = request.getParameter("command");
+	MemberDAO dao = new MemberDAO();
+	if(command != null && command.equals("addMember")){
+%>
+<jsp:setProperty property="id" name="memBean" param="id" />
+<jsp:setProperty property="pwd" name="memBean" param="pwd" />
+<jsp:setProperty property="name" name="memBean" param="name" />
+<jsp:setProperty property="email" name="memBean" param="email" />
+<%
+		dao.addMember(memBean);
+	} else {
+		String id = request.getParameter("id");
+		dao.delMember(id);
+	}
+	List memberList = dao.listMembers(); // 목록 보여줌
+%>
 <!DOCTYPE html>
 <html>
 <head>
