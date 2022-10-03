@@ -1,0 +1,230 @@
+@charset "utf-8";
+/* 초기화 */
+html, body, div, header, nav, ul, li, section, footer, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none;
+}
+/* 숨김 콘텐츠 */
+.hidden {
+    position: absolute;
+    left: -9999px;
+}
+/* 링크 스타일 */
+a:link { /* 사이트 방문 전 */
+    text-decoration: none;
+    color: #000;
+}
+a:visited { /* 사이트 방문 후 */
+    text-decoration: none;
+    color: #4B4B4B;
+}
+a:hover, a:focus {
+    text-decoration: underline;
+}
+/* 기본 스타일 */
+body {
+    color: black;
+    background-color: white;
+    font-size: 1em;
+    line-height: 1.2;
+}
+/* 레이아웃 */
+header, .maincontent, #slogan, #footer, #visual{
+    width: 1024px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+#wrapper {
+    background-color: white;
+    background-repeat: no-repeat;
+}
+/* 헤더 영역 시작 */
+header {
+    height: 140px;
+    position: relative;
+    padding: 20px;
+}
+.logo a:hover {
+    text-decoration: none;
+}
+.logo {
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    font-weight: normal;
+    font-size: 1em;
+    letter-spacing: 10px;
+    color: #4B4B4B;
+}
+.logo img {
+    width: 140px;
+}
+.infoLink {
+    text-align: right;
+    position: absolute;
+    right: 25px;
+    width: 400px;
+    height: 100px;
+    padding-right: 20px;
+}
+.infoLink > li {
+    display: inline-block;
+    margin-top: 55px;
+    padding: 5px 10px;
+}
+.infoLink #infoimg1 {
+    width: 40px;
+    position: absolute;
+    top: 17px;
+    right: 300px;
+}
+.infoLink #infoimg2 {
+    width: 40px;
+    position: absolute;
+    top: 17px;
+    right: 220px;
+}
+.infoLink #infoimg3 {
+    width: 40px;
+    position: absolute;
+    top: 17px;
+    right: 132px;
+}
+.infoLink #infoimg4 {
+    width: 40px;
+    position: absolute;
+    top: 17px;
+    right: 45px;
+}
+nav {
+    position: relative;
+    height: 45px;
+    border-top: 3px solid #FF7E7E;
+    border-bottom: 3px solid #FF7E7E;
+}
+.mainmenu {
+    width: 1024px;
+}
+.mainmenu > li {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    line-height:45px;
+    position: relative;
+    left: 210px;
+}
+.mainmenu > li::before {
+    content: "|";
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+    color: #ABABAB;
+}
+.mainmenu > li:first-child::before {
+    content: "";
+}
+.mainmenu > li > a {
+    color: #4B4B4B;
+    font-weight: 700;
+}
+.mainmenu ul > li {
+    display: none;
+}
+.mainmenu .sub {
+    position: absolute;
+    z-index: 10;
+    white-space: nowrap; /* 줄바꿈만 안하게해줌 */
+}
+.mainmenu > li:hover ul {
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-top: 1px;
+}
+.mainmenu > li:hover ul > li {
+    display: inline-block;
+    padding: 3px 15px;
+}
+nav .reserve {
+    padding: 8px 17px;
+    position: absolute;
+    right: 300px;
+    top: 3px;
+    border: 1px solid #FF4848;
+    background-color: #FF2424;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* 슬로건 영역 시작 */
+#slogan {
+    width: 100%;
+    margin-top: 60px;
+}
+#slogan > #sloganimg {
+    text-align: center;
+    background-image: linear-gradient(to bottom, #fff 0%, #fff 24%, #ffa443 24%, #ffa443 99%, #fff 99%, #fff 100%);
+}
+#slogan > #sloganimg > img {
+    width: 60%;
+    height: 220px;
+}
+/* 푸터 영역 시작 */
+#footer {
+    padding: 15px;
+    margin-top: 20px;
+}
+.guide > ul {
+    padding: 0 0 15px 0;
+    border-bottom: 1px solid #D8D8D8;
+    text-align: center;
+}
+.guide > ul > li { 
+    display: inline-block;
+}
+.guide > ul > li > a {
+    font-size: 14px;
+    color: #4B4B4B;
+    padding: 0 4px;
+}
+address {
+    margin-top: 20px;   
+}
+address > span {
+    display: block;
+    margin: 5px 0;
+}
+address, #footer > p {
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    color: #4B4B4B;
+}
+#footer > p {
+    margin-bottom: 30px;
+}
+/* 맨 위로가기 버튼 */
+#TOP {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+    z-index: 20;
+    width: 45px;
+    height: 45px;
+    background-color: #929191;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    line-height: 35px;
+}
+#TOP:hover {
+    background-color: #ef5120;
+}

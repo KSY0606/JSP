@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* 회원가입 영역 시작 */
+#signupArea {
+    margin-top: 60px;
+    text-align: center;
+}
+#signupArea form {
+    position: relative;
+}
+#signupArea h2 {
+    color: rgb(219, 91, 91);
+    font-size: 1.5em;
+    letter-spacing: 3px;   
+}
+#signupArea fieldset {
+    border: none;
+    display: inline-block;
+    width: 400px;
+    padding: 30px 50px;
+    border-left: 2px solid #d6d6d6;
+    border-right: 2px solid #d6d6d6;
+}
+#signupArea div {
+    text-align: center;
+}
+#signupArea p {
+    position: relative;
+    width: 400px;
+    height: 70px;
+    padding: 10px;
+}
+#signupArea .idCheck {
+    position: absolute;
+    top: 13px;
+    right: 70px;
+    font-size: 0.8em;
+    color: #615a5a;
+}
+#signupArea .idCheck:hover {
+    color: red;
+    text-decoration: none;
+}
+#signupArea label {
+    display: block;
+    width: 130px;
+    text-align: left;
+    padding-bottom: 10px;
+    margin-left: 75px;
+    color: black;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+#signupArea input {
+    width: 240px;
+    height: 30px;
+    display: inline-block;
+}
+#signupArea .gender {
+    width: 240px;
+    height: 30px;
+}
+#signupArea .day {
+    width: 80px;
+    height: 30px;
+}
+#signupArea .btnJoinArea {
+    margin-top: 25px;
+}
+#signupArea .btnOk, #signupArea .btnCancle {
+    width: 100px;
+    height: 40px;   
+    border-radius: 3px;
+    color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+#signupArea .btnOk {
+    margin-right: 13px;
+    background-color: #e84b20;
+    border: 1px solid #ed7554;
+}
+#signupArea .btnOk:hover, #signupArea .btnCancle:hover {
+    cursor: pointer;
+}
+#signupArea .btnCancle {
+    margin-left: 13px;
+    background-color: #686767;
+    border: 1px solid #8e8c8c;
+}

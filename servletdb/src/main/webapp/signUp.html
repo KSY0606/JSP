@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGV 회원가입</title>
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <link rel="stylesheet" type="text/css" href="signUp.css">
+    <link rel="icon" href="images/icon.ico">
+</head>
+<body>
+    <!-- #wrapper 시작 -->
+    <div id="wrapper">
+        <!-- 헤더 영역 시작 -->
+        <header>
+            <h1 class="logo">
+                <a href="index.html">
+                    <img src="images/logoRed.png" alt="영화관 로고">
+                    CULTUREPLEX
+                </a>
+            </h1>
+            <ul class="infoLink">
+                <li><a href="login.html"><img id="infoimg1" src="images/loginPassword.png" alt="로그인 이미지">로그인</a></li>
+                <li><a href="signUp.html"><img id="infoimg2" src="images/loginJoin.png" alt="회원가입 이미지">회원가입</a></li>
+                <li><a href="#"><img id="infoimg3" src="images/loginMember.png" alt="내정보 이미지">MY CGV</a></li>
+                <li><a href="#"><img id="infoimg4" src="images/loginCustomer.png" alt="고객센터 이미지"> 고객센터</a></li>
+            </ul>
+        </header>
+        <!-- 헤더 영역 종료 -->
+
+        <!-- 메뉴 영역 시작 -->
+        <nav>
+            <h2 class="hidden">메인메뉴</h2>
+            <ul class="mainmenu">
+                <li><a href="#">영화</a>
+                    <ul id="movie" class="sub">
+                        <li><a href="#">박스오피스</a></li>
+                        <li><a href="#">최신개봉작</a></li>
+                        <li><a href="#">상영예정작</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">예매</a>
+                    <ul id="ticketing" class="sub">
+                        <li><a href="#">예매하기</a></li>
+                        <li><a href="#">상영시간표</a></li>
+                        <li><a href="#">할인안내</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">이벤트</a>
+                    <ul id="event" class="sub">
+                        <li><a href="#">시사회/무대인사</a></li>
+                        <li><a href="#">제휴할인</a></li>
+                        <li><a href="#">당첨자 발표</a></li>
+                        <li><a href="#">종료된 이벤트</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">스토어</a>
+                    <ul id="store" class="sub">
+                        <li><a href="#">베스트</a></li>
+                        <li><a href="#">관람권</a></li>
+                        <li><a href="#">스낵음료</a></li>
+                        <li><a href="#">포토카드</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">혜택</a>
+                    <ul id="benefit" class="sub">
+                        <li><a href="#">할인정보</a></li>
+                        <li><a href="#">CLUB 라운지</a></li>
+                        <li><a href="#">VIP 라운지</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <button class="reserve">간편예매</button>
+        </nav>
+        <!-- 메뉴 영역 종료 -->
+
+        <!-- 메인 콘텐츠 영역 시작 -->
+        <div class="maincontent">
+            <!-- 회원가입 영역 시작-->
+            <div id="signupArea">
+                <h2>회원가입</h2>
+                <form action="signUp" method="post" id="signUpForm" name="signUpForm">
+                    <fieldset>
+                        <legend class="hidden">회원가입 정보 입력</legend>
+                        <div>
+                            <p>
+                                <label for="id">아이디</label>
+                                <input type="text" id="id" name="id" required>
+                                <a href="#" class="idCheck">ID중복확인</a>
+                            </p>
+                            <p>
+                                <label for="password">비밀번호</label>
+                                <input type="password" id="password" name="password" required>
+                            </p>
+                            <p>
+                                <label for="confirmPassword">비밀번호 재확인</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <label for="name">이름</label>
+                                <input type="text" id="name" name="name" required>
+                            </p>
+                            <p>
+                                <label id="birthday">생년월일</label>
+                                <select name="year" class="day">
+                                    <option value="">-- 연도 --</option>
+                                    <option value="1980">1980</option>
+                                    <option value="1981">1981</option>
+                                    <option value="1982">1982</option>
+                                    <option value="1983">1983</option>
+                                    <option value="1984">1984</option>
+                                    <option value="1985">1985</option>
+                                    <option value="1986">1986</option>
+                                    <option value="1987">1987</option>
+                                    <option value="1988">1988</option>
+                                    <option value="1989">1989</option>
+                                    <option value="1990">1990</option>
+                                    <option value="1991">1991</option>
+                                    <option value="1992">1992</option>
+                                    <option value="1993">1993</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1999">1999</option>
+                                    <option value="2000">2000</option>
+                                </select>
+                                <select name="month" class="day">
+                                    <option value="">-- 월 --</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <select name="day" class="day">
+                                    <option value="">-- 일 --</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label id="sex">성별</label>
+                                <select name="gender" class="gender">
+                                    <option value="">-- 성별 --</option>
+                                    <option value="남자">남자</option>
+                                    <option value="여자">여자</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="tel">연락처</label>
+                                <input type="tel" id="tel" name="tel" maxlength="11" size="20" title="하이픈(-)은 입력할 수 없습니다." placeholder="입력 예) 01012347890">
+                            </p>
+                            <p>
+                                <label for="email">이메일</label>
+                                <input type="email" id="email" name="email" size="30" required placeholder="입력 예) ezen@gmail.com">
+                            </p>
+                        </div>
+                        <div class="btnJoinArea">
+                            <button type="submit" class="btnOk">회원가입</button>
+                            <button type="reset" class="btnCancle">취소</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <!-- 회원가입 영역 종료-->
+        </div>
+        <!-- 메인 콘텐츠 영역 종료 -->
+
+        <!-- 슬로건 영역 시작 -->
+        <section id="slogan">
+            <div id="sloganimg">
+                <img src="images/slogan.png" alt="CGV 우리카드 출시 이미지">
+            </div>
+        </section>
+        <!-- 슬로건 영역 종료 -->
+
+        <!-- 푸터 영역 시작 -->
+        <footer id="footer">
+            <section class="guide">
+                <h2 class="hidden">사이트 이용안내</h2>
+                <ul>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">IR</a></li>
+                    <li><a href="#">채용공고</a></li>
+                    <li><a href="#">광고/제휴/출점문의</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">편성기준</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">법적고지</a></li>
+                    <li><a href="#">이메일주소무단수집거부</a></li>
+                    <li><a href="#">윤리경영</a></li>
+                    <li><a href="#">사이버감사실</a></li>
+                </ul>
+            </section>
+            <address>
+                    <span>(04377)서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동)</span>
+                    <span>대표이사 : 허민회 ·사업자등록번호 : 104-81-45690 ·통신판매업신고번호 : 2017-서울용산-0622 사업자정보확인</span>
+                    <span>호스팅사업자 : CJ올리브네트웍스 ·개인정보보호 책임자 : 심준범 ·대표이메일 : 123456@cj.net</span>
+            </address>
+            <p class="copyright">&copy; CJ CGV. All Right Reserved</p>
+        </footer>
+        <!-- 푸터 영역 종료 -->
+    </div>
+    <!-- #wrapper 종료 -->
+    <button id="TOP" onclick="topFunction()" title="맨 위로 가기">TOP</button>
+    <script src="js/common.js"></script>
+</body>
+</html>
