@@ -40,12 +40,12 @@ public class MemberDAO {
 			pstmt = con.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
-				int num = Integer.parseInt(rs.getString("num"));
+				String num = rs.getString("num");
 				String name = rs.getString("name");
 				String subject = rs.getString("subject");
 				String text = rs.getString("text");
 				String pass = rs.getString("pass");
-				int count = Integer.parseInt(rs.getString("count"));
+				String count = rs.getString("count");
 				Date regdate = rs.getDate("regdate");
 				MemberBean vo = new MemberBean();
 				vo.setNum(num);
@@ -69,20 +69,16 @@ public class MemberDAO {
 	public void addMember(MemberBean memberBean) {
 		try {
 			con = dataFactory.getConnection();
-			int num = memberBean.getNum();
 			String name = memberBean.getName();
 			String subject = memberBean.getSubject();
 			String text = memberBean.getText();
 			String pass = memberBean.getPass();
-			int count = memberBean.getCount();
-			String query = "insert into examdb(num, name, subject, text, pass, count) values(?,?,?,?,?,?)";
+			String query = "insert into examdb(name, subject, text, pass) values(?,?,?,?)";
 			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, num);
-			pstmt.setString(2, name);
-			pstmt.setString(3, subject);
-			pstmt.setString(4, text);
-			pstmt.setString(5, pass);
-			pstmt.setInt(6, count);
+			pstmt.setString(1, name);
+			pstmt.setString(2, subject);
+			pstmt.setString(3, text);
+			pstmt.setString(4, pass);
 			pstmt.executeUpdate();
 			pstmt.close();
 		}catch(Exception e) {

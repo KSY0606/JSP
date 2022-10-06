@@ -4,19 +4,19 @@ package exam.ex01;
 import java.sql.Date;
 
 public class MemberBean {
-	private int num;
+	private String num;
 	private String name;
 	private String subject;
 	private String text;
 	private String pass;
-	private int count;
+	private String count;
 	private Date regdate;
 	
 	public MemberBean() {
 		
 	}
 	
-	public MemberBean(int num, String name, String subject, String text, String pass, int count) {
+	public MemberBean(String num, String name, String subject, String text, String pass, String count) {
 		this.num = num;
 		this.name = name;
 		this.subject = subject;
@@ -25,11 +25,11 @@ public class MemberBean {
 		this.count = count;
 	}
 
-	public int getNum() {
+	public String getNum() {
 		return num;
 	}
 
-	public void setNum(int num) {
+	public void setNum(String num) {
 		this.num = num;
 	}
 
@@ -73,11 +73,11 @@ public class MemberBean {
 		this.pass = pass;
 	}
 
-	public int getCount() {
+	public String getCount() {
 		return count;
 	}
 
-	public void setCount(int count) {
+	public void setCount(String count) {
 		this.count = count;
 	}
 
