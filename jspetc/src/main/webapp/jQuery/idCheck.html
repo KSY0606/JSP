@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아이디 중복체크</title>
+<script src="http://code.jquery.com/jquery-Latest.min.js"></script>
+<script type="text/javascript">
+	function fn_idCheck() {
+		let _id = $('#chk_id').val(); // input에 작성된 값(val)을 가져옴
+		if(_id == '') { // 빈칸 일 경우
+			alert("중복체크 할 ID를 입력하세요.");
+			return;
+		}
+		$.ajax({
+			type:"post",
+			async:true,
+			dataType:"text",
+			url:"http://127.0.0.1:8090/jspetc/member",
+			data:{id: _id},
+			success:function(data, textStatus) {
+				if(data == 'usable'){
+					$("#resultMsg").html("<p>사용할 수 있는 ID입니다.");
+					$("#btn_duplicate").prop("disabled", true);  // 중복체크버튼 비활성화
+				}else {
+					$("#resultMsg").html("<p>사용할 수 없는 ID입니다.");
+				}
+			},
+			error : function (data, textStatus) {
+				alert("에러가 발생했습니다.");
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="chk_id">
+	<input type="button" id="btn_duplicate" value="ID 중복체크하기" onclick="fn_idCheck()">
+	<div id="resultMsg"></div>
+</body>
+</html>
