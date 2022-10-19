@@ -32,7 +32,7 @@ public class MemberDAO {
 		List<MemberVO> membersList = new ArrayList();
 		try {
 			conn = dataFactory.getConnection();
-			String query = "select * from memberstbl by joinDate desc";
+			String query = "select * from memberstbl order by joinDate desc";
 			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
@@ -74,6 +74,70 @@ public class MemberDAO {
 			conn.close();
 		} catch (Exception e) {
 			System.out.println("DB 등록 중 에러");
+		}
+	}
+	
+	// 수정 할 회원정보 찾기
+	public MemberVO findMember(String _id) {
+		MemberVO memFindInfo = null;
+		try {
+			conn = dataFactory.getConnection();
+			String query = "select * from memberstbl where id=?";
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1, _id);
+			System.out.println(query);
+			ResultSet rs = pstmt.executeQuery();
+			rs.next();
+			String id = rs.getString("id");
+			String pwd = rs.getString("pwd");
+			String name = rs.getString("name");
+			String email = rs.getString("email");
+			Date joinDate = rs.getDate("joinDate");
+			memFindInfo = new MemberVO(id, pwd, name, email, joinDate);
+			pstmt.close();
+			conn.close();
+			rs.close();
+		}catch (Exception e) {
+			System.out.println("수정할 자료 찾는중 에러");
+		}
+		return memFindInfo;
+	}
+	
+	// 회원 정보 수정
+	public void modMember(MemberVO memberVO) {
+		String id = memberVO.getId();
+		String pwd = memberVO.getPwd();
+		String name = memberVO.getName();
+		String email = memberVO.getEmail();
+		try {
+			conn = dataFactory.getConnection();
+			String query = "update memberstbl set pwd=?, name=?, email=? where id=?";
+			System.out.println(query);
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, pwd);
+			pstmt.setString(2, name);
+			pstmt.setString(3, email);
+			pstmt.setString(4, id);
+			pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
+		}catch (Exception e) {
+			System.out.println("회원정보 수정 중 에러");
+		}
+	}
+	
+	// 회원 삭제
+	public void delMember(String id) {
+		try {
+			conn = dataFactory.getConnection();
+			String query = "delete from memberstbl where id = ?";
+			System.out.println(query);
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch(Exception e) {
+			System.out.println("삭제중 오류발생");
 		}
 	}
 }

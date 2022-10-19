@@ -15,14 +15,20 @@ public class MemberVO {
 		System.out.println("MemberVO 생성자 호출");
 	}
 	// 생성자
-	public MemberVO(String id, String pwd, String name, String email, Date joDate) {
+	public MemberVO(String id, String pwd, String name, String email, Date joinDate) {
 		this.id=id;
 		this.pwd=pwd;
 		this.name=name;
-		this.name=name;
-		this.joinDate=joDate;
+		this.email=email;
+		this.joinDate=joinDate;
 	}
-	
+	// 생성자
+		public MemberVO(String id, String pwd, String name, String email) {
+			this.id=id;
+			this.pwd=pwd;
+			this.name=name;
+			this.email=email;
+		}
 	// getter와 setter를 통해 데이터를 set(세팅), get으로 불러와서 사용
 	public String getId() {
 		return id;
