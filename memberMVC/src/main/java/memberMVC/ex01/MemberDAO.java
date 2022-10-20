@@ -135,6 +135,7 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, id);
 			pstmt.executeUpdate();
+			conn.close();
 			pstmt.close();
 		} catch(Exception e) {
 			System.out.println("삭제중 오류발생");

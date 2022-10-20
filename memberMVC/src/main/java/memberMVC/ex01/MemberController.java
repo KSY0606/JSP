@@ -64,10 +64,11 @@ public class MemberController extends HttpServlet {
 			memberDAO.modMember(memberVO);
 			request.setAttribute("msg", "modified");
 			nextPage="/member/listMembers.do";
-		}else if(action.equals("delMember.do")) {
+		}else if(action.equals("/delMember.do")) {
 			String id = request.getParameter("id");
 			memberDAO.delMember(id);
 			request.setAttribute("msg", "deleted");
+			nextPage="/member/listMembers.do";
 		}else {
 			List<MemberVO> membersList = memberDAO.listMembers();
 			request.setAttribute("membersList", membersList);
