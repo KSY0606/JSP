@@ -12,6 +12,22 @@
 <meta charset="UTF-8">
 <title>글쓰기 창</title>
 <script src="http://code.jquery.com/jquery-Latest.min.js"></script>
+<script type="text/javascript">
+	function readImage(input) {
+		if(input.files && input.files[0]) {
+			let reader = new FileReader();
+			reader.onload = function(event) {
+				$('#preview').attr('src',event.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+	// 다른 액션을 submit하는 함수
+	function toList(obj) {
+		obj.action="${contextPath}/board/listArticles.do";
+		obj.submit();
+	}
+</script>
 </head>
 <body>
 	<h2 align="center">글쓰기</h2>
@@ -23,7 +39,20 @@
 			</tr>
 			<tr>
 				<td align="right">글내용 : </td>
-				<td colspan="2"><textarea rows="10" cols="50" maxlength="4000"></textarea></td>
+				<td colspan="2"><textarea name="content" rows="10" cols="50" maxlength="4000"></textarea></td>
+			</tr>
+			<tr>
+				<td align="center">이미지파일 첨부 : </td>
+				<td><input type="file" name="imageFileName" onchange="readImage(this)"></td>
+				<td><img id="preview" src="#" width="200" height="200"> </td>
+			</tr>
+			<tr>
+				<td align="right">
+					<input type="submit" value="글쓰기">
+				</td>
+				<td align="center">
+					<input type="button" value="목록보기" onclick="toList(this.form)">
+				</td>
 			</tr>
 		</table>
 	</form>
