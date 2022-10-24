@@ -5,7 +5,7 @@ import java.util.List;
 public class BoardService {
 	BoardDAO boardDAO;
 	public BoardService() {
-		boardDAO = new BoardDAO();
+		boardDAO = new BoardDAO(); // 积己磊俊辑 BoardDAO按眉甫 积己
 	}
 	
 	public List<ArticleVO> listArticles() {
@@ -15,5 +15,11 @@ public class BoardService {
 	
 	public int addArticle(ArticleVO article) {
 		return boardDAO.insertNewArticle(article);
+	}
+	
+	public ArticleVO viewArticle(int articleNo) {
+		ArticleVO article = null;
+		article = boardDAO.selectArticle(articleNo);
+		return article;
 	}
 }
