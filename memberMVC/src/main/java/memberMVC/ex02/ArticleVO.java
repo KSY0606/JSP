@@ -84,7 +84,9 @@ public class ArticleVO {
 	}
 	public void setImageFileName(String imageFileName) {
 		try {
-			this.imageFileName = URLEncoder.encode(imageFileName,"utf-8");
+			if(imageFileName != null && imageFileName.length() != 0) {
+				this.imageFileName = URLEncoder.encode(imageFileName,"utf-8");
+			}
 		}catch (UnsupportedEncodingException e) {
 			System.out.println("이미지 저장중 에러");
 		}
