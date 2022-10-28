@@ -53,8 +53,8 @@ public class BoardController extends HttpServlet {
 		System.out.println("요청 이름 : " + action);
 		try {
 			List<ArticleVO> articleList = new ArrayList<ArticleVO>();
-			if(action == null) {
-				/*String _section = request.getParameter("section");
+			if(action == null || action.equals("/listArticles.do")) {
+				String _section = request.getParameter("section");
 				String _pageNum = request.getParameter("pageNum");
 				int section = Integer.parseInt((_section == null)? "1":_section);
 				int pageNum = Integer.parseInt((_pageNum == null)? "1":_pageNum);
@@ -65,11 +65,7 @@ public class BoardController extends HttpServlet {
 				articleMap.put("section", section);
 				articleMap.put("pageNum", pageNum);
 				request.setAttribute("articleMap", articleMap);
-				nextPage = "/boardinfo/listArticles.jsp";*/
-			}else if(action.equals("/listArticles.do")) { // action값이 listArticles.do이면 전체글을 조회한다.
-				articleList = boardService.listArticles();
-				request.setAttribute("articleList", articleList); // 조회된 글 목록을 articleList로 바인딩 한 후
-				nextPage = "/boardinfo/listArticles.jsp";         //  listArticles.jsp로 포워딩합니다.
+				nextPage = "/boardinfo/listArticles.jsp";
 			}else if(action.equals("/articleForm.do")) {
 				nextPage = "/boardinfo/articleForm.jsp"; // 글쓰기창을 나타냄
 			}else if(action.equals("/addArticle.do")) { // 새 글 쓰기 작업을 수행

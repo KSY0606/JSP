@@ -3,6 +3,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<c:set var="articleList" value="${articleMap.articleList}"/>
+<c:set var="totArticles" value="${articleMap.totArticles}"/>
+<c:set var="section" value="${articleMap.section}"/>
+<c:set var="pageNum" value="${articleMap.pageNum}"/>
 <%
 	request.setCharacterEncoding("utf-8");
 %>  
@@ -12,10 +16,16 @@
 	<meta charset="UTF-8">
 	<title>글 목록창</title>
 <style type="text/css">
-	.ba{
-	text-decoration: none;
+	a {
+		text-decoration: none;
+		color: black;
 	}
-	
+	.selPage {
+		color: red;
+	}
+	.noLine {
+		color : black;
+	}
 </style>
 </head>
 <body>
@@ -59,6 +69,38 @@
 			</c:when>
 		</c:choose>
 	</table>
+	<div align="center">
+		<c:if test="${totArticles != null}">
+			<c:when test="${totArticles > 100}">
+				<c:forEach var="page" begin="1" end="10" step="1">
+					<c:if test="${section > 1 && page == 1}">
+						<a href="${contextPath}/board/listArticles.do?section=${section-1}&pageNum=${(section-1)*10+1}"> prev</a>
+					</c:if>
+					<a href="${contextPath}/board/listArticles.do?section=${section}&pageNum=${page}">${(section-1)*10+page}</a>
+					<c:if test="${page == 10}">
+						<a href="${contextPath}/board/listArticles.do?section=${section+1}&pageNum=${section*10+1}"> next</a>
+					</c:if>
+				</c:forEach>
+			</c:when>
+			<c:when test="${totArticles == 100}">
+				<c:forEach var="page" begin="1" end="10" step="1">
+					<a href="#">${page}</a>
+				</c:forEach>
+			</c:when>
+			<c:when test="${totArticles < 100}">
+				<c:forEach var="page" begin="1" end="${totArticles/10+1}" step="1">
+					<c:choose>
+						<c:when test="${page==pageNum}">
+							<a class="selPage" href="${contextPath}/board/listArticles.do?section=${section}&pageNum=${page}">${page}</a>
+						</c:when>
+						<c:otherwise>
+							<a class="noLine" href="${contextPath}/board/listArticles.do?section=${section}&pageNum=${page}">${page}</a>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</c:when>
+		</c:if>
+	</div>
 	<p align="center"><a href="${contextPath}/board/articleForm.do">글쓰기</a>
 </body>
 </html>

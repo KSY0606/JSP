@@ -1,11 +1,22 @@
 package memberMVC.ex02;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BoardService {
 	BoardDAO boardDAO;
 	public BoardService() {
 		boardDAO = new BoardDAO(); // 积己磊俊辑 BoardDAO按眉甫 积己
+	}
+	
+	public Map listArticles(Map<String, Integer> pagingMap) {
+		Map articleMap = new HashMap();
+		List<ArticleVO> articleList = boardDAO.selectAllArticles(pagingMap);
+		int totArticles = boardDAO.selectToArticles();
+		articleMap.put("articleList", articleList);
+		articleMap.put("totArticles", articleList);
+		return articleMap;
 	}
 	
 	public List<ArticleVO> listArticles() {
